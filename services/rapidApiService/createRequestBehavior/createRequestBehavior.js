@@ -22,6 +22,21 @@ class CreateRequestBehavior {
 class CreateGetAnimeRequestBehavior extends CreateRequestBehavior {
     constructor(config) {
         super(config);
+        /*
+            const endpoint = 'search';
+            const params = {
+                q: 'Black Clover',
+                n: '50',
+            }
+
+            const config = {
+                endpoint: <string>, //'search'
+                params: {
+                    q: <string>, // 'Black Clover',
+                    n: <number> // results to return
+                }
+            }
+        */
         this.method = 'GET';
         this.baseUrl = `https://myanimelist.p.rapidapi.com/v2/anime`;
         this.rapidApiHost = 'myanimelist.p.rapidapi.com';

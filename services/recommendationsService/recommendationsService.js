@@ -38,7 +38,13 @@ class RecommendationsService {
 class GptRecommendationsService extends RecommendationsService {
     constructor(config) {
         super(config);
-
+        /*
+            config: {
+                title: <string>, // title of the anime
+                reason: <string>, // reason the user likes the anime
+                max: <number> // max results
+            }
+        */
         this.createPromptBehavior = RecommendationPromptFromTitleAndDescription;
         this.getGptReplyService = Gpt35JsonReplyService;
     }

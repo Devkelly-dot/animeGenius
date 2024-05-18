@@ -1,0 +1,7 @@
+OPENAI_API_KEY = <key>
+OPENAI_ORG_ID = <key>
+RAPID_API_KEY = <key>
+
+<!-- Will need these APIs on your rapid api account -->
+https://rapidapi.com/felixeschmittfes/api/myanimelist/
+https://rapidapi.com/movie-of-the-night-movie-of-the-night-default/api/streaming-availability/
