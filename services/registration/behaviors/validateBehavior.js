@@ -1,3 +1,5 @@
+const User = require("../../../db/models/User");
+
 class ValidateRegisterBehavior {
     constructor(userForm) {
         this.userForm = userForm;
@@ -32,6 +34,15 @@ class ValidateRegisterFormBehavior extends ValidateRegisterBehavior {
             }
         }
 
+        const exists = await User.exists({email});
+        if(exists) {
+            return {
+                error: {
+                    code: 409,
+                    message: 'User with that email already exists'
+                }
+            }
+        }
         return {
             email, 
             password,

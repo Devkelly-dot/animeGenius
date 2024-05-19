@@ -1,4 +1,5 @@
 const { CreateUserFromForm } = require("../createUserService/createUserService");
+const { PostRegisterGenerateToken } = require("./behaviors/postProcessBehavior");
 const { ValidateRegisterFormBehavior } = require("./behaviors/validateBehavior");
 
 class RegistrationService {
@@ -7,6 +8,7 @@ class RegistrationService {
 
         this.validateBehavior = null;
         this.createUserService = null;
+        this.postProcessBehavior = null;
     }
 
     async do() {
@@ -19,7 +21,14 @@ class RegistrationService {
 
         const createUserService = new this.createUserService(validatedData);
         const userData = await createUserService.do();
-        return userData;
+
+        let returnUser = userData;
+        if(this.postProcessBehavior) {
+            const postProcessBehavior = new this.postProcessBehavior(userData);
+            returnUser = await postProcessBehavior.do();
+        }
+
+        return returnUser;
     }
 }
 
@@ -29,6 +38,7 @@ class EmailRegistrationService extends RegistrationService {
 
         this.validateBehavior = ValidateRegisterFormBehavior;
         this.createUserService = CreateUserFromForm;
+        this.postProcessBehavior = PostRegisterGenerateToken;
     }
 }
 
