@@ -1,6 +1,6 @@
 const { BaseReturnSerializer } = require("../base/baseReturnSerializer");
 
-class RegisterByEmailSerializer extends BaseReturnSerializer {
+class LoginByEmailPassSerializer extends BaseReturnSerializer {
     constructor(data) {
         super(data);
 
@@ -14,5 +14,5 @@ class RegisterByEmailSerializer extends BaseReturnSerializer {
 }
 
 module.exports = {
-    RegisterByEmailSerializer
+    LoginByEmailPassSerializer
 }
