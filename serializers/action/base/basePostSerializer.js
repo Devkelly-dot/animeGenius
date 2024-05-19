@@ -11,6 +11,8 @@ class BasePostSerializer extends BaseActionSerializer {
     async doAction() {
         let missing_fields = [];
         const body = this.req?.body;
+        let verifiedFields = {};
+
         if(!body) {
             throw new Error("BasePostSerializer needs a body");
         }
@@ -18,6 +20,8 @@ class BasePostSerializer extends BaseActionSerializer {
         this.required_fields?.forEach((f)=>{
             if(!body[f]) {
                 missing_fields.push(f);
+            } else {
+                verifiedFields[f] = body[f];
             }
         });
 
@@ -29,11 +33,18 @@ class BasePostSerializer extends BaseActionSerializer {
                 }
             }
         }
-        const data = await this.post();
+
+        this.optional_fields?.forEach((f)=>{
+            if(body[f]) {
+                verifiedFields[f] = body[f];
+            }
+        });
+
+        const data = await this.post(verifiedFields);
         return data;
     }
 
-    async post() {
+    async post(verifiedFields) {
         throw new Error("BasePostSerializer needs a post method");
     }
 }

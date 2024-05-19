@@ -28,7 +28,13 @@ class CreateRegularUserBehavior extends CreateUserBehavior {
         if(!this.userConfig.email || !this.userConfig.password) {
             throw new Error("CreateRegularUserBehavior's config must have email and password properties");
         }
-        const user = await User.create(this.userConfig);
+        const new_user = {
+            email: this.userConfig?.email,
+            password: this.userConfig?.password,
+            username: this.userConfig?.username
+        }
+
+        const user = await User.create(new_user);
         return user;
     }
 }

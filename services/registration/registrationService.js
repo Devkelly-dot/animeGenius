@@ -2,15 +2,15 @@ const { CreateUserFromForm } = require("../createUserService/createUserService")
 const { ValidateRegisterFormBehavior } = require("./behaviors/validateBehavior");
 
 class RegistrationService {
-    constructor(newUser) {
-        this.form = newUser;
+    constructor(form) {
+        this.form = form;
 
         this.validateBehavior = null;
         this.createUserService = null;
     }
 
     async do() {
-        const validateBehavior = new this.validateBehavior(newUser);
+        const validateBehavior = new this.validateBehavior(this.form);
         const validatedData = await validateBehavior.do();
 
         if(validatedData?.error) {

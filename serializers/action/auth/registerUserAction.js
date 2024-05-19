@@ -1,3 +1,4 @@
+const { EmailRegistrationService } = require("../../../services/registration/registrationService");
 const { BasePostSerializer } = require("../base/basePostSerializer");
 
 class RegisterUserAction extends BasePostSerializer {
@@ -10,8 +11,10 @@ class RegisterUserAction extends BasePostSerializer {
         ]
     }
 
-    async post() {
-        
+    async post(verifiedFields) {
+        const emailRegistrationService = new EmailRegistrationService(verifiedFields);
+        const newUser = await emailRegistrationService.do();
+        return newUser;
     }
 }
 

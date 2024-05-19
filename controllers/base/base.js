@@ -15,13 +15,15 @@ class BaseController {
             const actionSerializer = new this.actionSerializer(req);
             const businessData = await actionSerializer.do();
             if(businessData?.error) {
-                return res.status(businessData?.code).send(businessData?.message);
+                const error = businessData?.error;
+                return res.status(error?.code).send(error?.message);
             }
 
             const returnSerializer = new this.returnSerializer(businessData);
             const serializedData = await returnSerializer.do();
             if(serializedData?.error) {
-                return res.status(serializedData?.code).send(serializedData?.message);
+                const error = serializedData?.error;
+                return res.status(error?.code).send(error?.message);
             }
 
             let code = 200;
@@ -29,7 +31,7 @@ class BaseController {
                 code = serializedData.res.code;
             }
 
-            return res.status(200).send(serializedData);
+            return res.status(code).send(serializedData);
         } catch (error) {
             console.log(error);
             return res.status(500).send({message: "Something went wrong, try again later."})

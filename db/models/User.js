@@ -1,13 +1,11 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const BaseModelSchema = require('./base/Base');
-const Subscription = require('./Subscription');
 
 const UserModel = new mongoose.Schema({
     username: {
         type: mongoose.SchemaTypes.String,
         maxlength: 20,
-        required: true
     },
     password: {
         type: mongoose.SchemaTypes.String,
