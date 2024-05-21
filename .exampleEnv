@@ -1,6 +1,10 @@
+<!-- URI for mongoDB - I used Atlas -->
+DB_URI = <uri> 
+
 OPENAI_API_KEY = <key>
 OPENAI_ORG_ID = <key>
 RAPID_API_KEY = <key>
+JWT_SECRET = <bigOldString>
 
 <!-- Will need these APIs on your rapid api account -->
 https://rapidapi.com/felixeschmittfes/api/myanimelist/
