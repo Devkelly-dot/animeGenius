@@ -31,7 +31,7 @@ class BaseReturnSerializer {
     serialize(data) {
         let serialized = {};
         this.fields.forEach((f)=>{
-            serialized[f] = data[f];
+            serialized[f] = data?.[f];
         });
 
         return serialized; 

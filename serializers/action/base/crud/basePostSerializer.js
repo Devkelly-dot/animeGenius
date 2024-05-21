@@ -1,6 +1,6 @@
-const { BaseActionSerializer } = require("./baseActionSerializer");
+const { BasePermissionSerializer } = require("../low/basePermissionSerializer");
 
-class BasePostSerializer extends BaseActionSerializer {
+class BasePostSerializer extends BasePermissionSerializer {
     constructor(req) {
         super(req);
 
@@ -8,7 +8,7 @@ class BasePostSerializer extends BaseActionSerializer {
         this.optional_fields = [];
     }
 
-    async doAction() {
+    async businessLogic() {
         let missing_fields = [];
         const body = this.req?.body;
         let verifiedFields = {};

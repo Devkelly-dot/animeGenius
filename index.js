@@ -15,4 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 let authRoute = require('./routes/auth');
 app.use('/v1/auth', authRoute);
 
+let animeRoute = require('./routes/anime');
+app.use('/v1/anime', animeRoute);
+
 module.exports = app;

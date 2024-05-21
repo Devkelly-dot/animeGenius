@@ -4,11 +4,11 @@ class BaseActionSerializer {
     }
 
     async do() {
-        const data = await this.doAction();
+        const data = await this.action();
         return data;
     }
 
-    async doAction() {
+    async action() {
         return this.req;
     }
 }

@@ -38,7 +38,7 @@ class CreateGetAnimeRequestBehavior extends CreateRequestBehavior {
             }
         */
         this.method = 'GET';
-        this.baseUrl = `https://myanimelist.p.rapidapi.com/v2/anime`;
+        this.baseUrl = `https://myanimelist.p.rapidapi.com`;
         this.rapidApiHost = 'myanimelist.p.rapidapi.com';
     }
 

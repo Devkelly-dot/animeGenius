@@ -1,5 +1,5 @@
 const { EmailRegistrationService } = require("../../../services/registration/registrationService");
-const { BasePostSerializer } = require("../base/basePostSerializer");
+const { BasePostSerializer } = require("../base/crud/basePostSerializer");
 
 class RegisterUserAction extends BasePostSerializer {
     constructor(req) {

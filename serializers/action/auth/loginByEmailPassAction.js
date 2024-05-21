@@ -1,5 +1,5 @@
 const { EmailPassLoginService } = require("../../../services/loginService/loginService");
-const { BasePostSerializer } = require("../base/basePostSerializer");
+const { BasePostSerializer } = require("../base/crud/basePostSerializer");
 
 class LoginByEmailPassAction extends BasePostSerializer {
     constructor(req) {
