@@ -2,6 +2,7 @@ class SendRequestBehavior {
     constructor(openai) {
         this.messages = [];
         this.new_message = null;
+        this.max_tokens = 500;
         this.openai = openai;
     }
 
@@ -37,7 +38,7 @@ class SendRequestWithGpt35Behavior extends SendRequestBehavior {
             messages: messages,
             model: "gpt-3.5-turbo",
             temperature: 0.9,
-            max_tokens: 500,
+            max_tokens: this.max_tokens,
             top_p: 1,
             frequency_penalty: 0,
             presence_penalty: 0.6,

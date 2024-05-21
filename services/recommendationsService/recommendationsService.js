@@ -29,6 +29,9 @@ class RecommendationsService {
         const getGptReplyService = new this.getGptReplyService(openai);
         getGptReplyService.setMessages([]);
         getGptReplyService.setNewMessage(prompt);
+        if(this.config?.max_tokens) {
+            getGptReplyService.setMaxTokens(prompt);
+        }
 
         const res = await getGptReplyService.do();
         return res;

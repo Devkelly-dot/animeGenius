@@ -5,6 +5,8 @@ class GptReplyService {
     constructor(openai) {
         this.new_message = null;
         this.messages = [];
+        this.max_tokens = 500;
+
         this.openai = openai;
 
         this.sendRequestBehavior = null;
@@ -40,6 +42,10 @@ class GptReplyService {
 
     setNewMessage(message) {
         this.new_message = message;
+    }
+
+    setMaxTokens(tokens) {
+        this.max_tokens = tokens;
     }
 }
 

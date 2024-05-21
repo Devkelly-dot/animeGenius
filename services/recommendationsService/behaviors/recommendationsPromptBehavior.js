@@ -32,7 +32,8 @@ class RecommendationPromptFromTitleAndDescription extends RecommendationsPromptB
         const title = `${config?.title}`;
         const reason = `${config?.reason}`;
         const max = `${config?.max?config.max:3}`;
-        
+        const length = `${config?.length?config.length:'short'}`;
+
         const getReccsPrompt = `
             The user likes ${title}. 
             their reasoning for liking it is: 
@@ -43,7 +44,7 @@ class RecommendationPromptFromTitleAndDescription extends RecommendationsPromptB
             {
                 recommendations: {
                     title: <string>, // title of the anime
-                    reason: <string> // why the user would like this anime
+                    reason: <string> // why the user would like this anime. give a ${length} reason. No spoilers.
                 }[]
             }
         `

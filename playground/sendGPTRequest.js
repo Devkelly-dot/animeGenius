@@ -3,9 +3,11 @@ const { GptRecommendationsService } = require('../services/recommendationsServic
 
 async function main() {
     const config = {
-        title: 'One Piece',
-        reason: 'I like the sword fighting',
-        max: 3
+        title: 'Death note',
+        reason: 'I really like the cat and mouse game between the two main characters. I also like the psychological aspect of the show. Id like to watch another anime with such a cat and mouse game.',
+        max: 10,
+        length: 'long and specific',
+        max_tokens: 1500
     }
 
 
