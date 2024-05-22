@@ -25,17 +25,16 @@ class RecommendationPromptFromTitleAndDescription extends RecommendationsPromptB
     async createPrompt() {
         const config = this.config;
 
-        if(!config?.title) {
-            throw new Error("RecommendationPromptFromTitleAndDescription's config needs a title")
-        }
-
         const title = `${config?.title}`;
         const reason = `${config?.reason}`;
         const max = `${config?.max?config.max:3}`;
         const length = `${config?.length?config.length:'short'}`;
 
-        const getReccsPrompt = `
-            The user likes ${title}. 
+        let getReccsPrompt = '';
+        if(title) {
+            getReccsPrompt+=`The user likes ${title}. `
+        }
+        getReccsPrompt += `
             their reasoning for liking it is: 
             ${reason}
 

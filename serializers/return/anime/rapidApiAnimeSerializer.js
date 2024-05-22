@@ -1,6 +1,6 @@
 const { BaseReturnSerializer } = require("../base/baseReturnSerializer");
 
-class PopularAnimeSerializer extends BaseReturnSerializer {
+class RapidApiAnimeSerializer extends BaseReturnSerializer {
     constructor(data) {
         super(data);
 
@@ -10,11 +10,12 @@ class PopularAnimeSerializer extends BaseReturnSerializer {
             'myanimelist_url',
             'score',
             'rank',
-            'aired_on'
+            'aired_on',
+            'description'
         ]
     }
 }
 
 module.exports = {
-    PopularAnimeSerializer
+    RapidApiAnimeSerializer
 }

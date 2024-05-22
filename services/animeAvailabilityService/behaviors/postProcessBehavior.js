@@ -25,12 +25,19 @@ class AnimeAvailabilityFilterByTitle extends AnimeAvailabilityPostProcessBehavio
 
     async process() {
         const result = this.res?.result;
-        const filtered = result?.filter((i)=>this.filter(i));
+        const filtered = result?.find((i)=>this.filter(i));
         return filtered;
     }
 
     filter(item) {
         const data = this.data;
+        const genres = item?.genres;
+        const is_animation = genres?.find((g)=>g?.name?.toLowerCase()==='animation')
+
+        if(!is_animation) {
+            return false;
+        }
+        
         if(!data?.title) {
             throw new Error("AnimeAvailabilityFilterByTitle's data needs a title entry");
         }

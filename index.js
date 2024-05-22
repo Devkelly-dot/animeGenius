@@ -18,4 +18,7 @@ app.use('/v1/auth', authRoute);
 let animeRoute = require('./routes/anime');
 app.use('/v1/anime', animeRoute);
 
+let availabilityRoute = require('./routes/availability');
+app.use('/v1/availability', availabilityRoute);
+
 module.exports = app;
