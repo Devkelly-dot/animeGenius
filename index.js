@@ -21,4 +21,7 @@ app.use('/v1/anime', animeRoute);
 let availabilityRoute = require('./routes/availability');
 app.use('/v1/availability', availabilityRoute);
 
+let recommendationsRoute = require('./routes/recommendations');
+app.use('/v1/recommendations', recommendationsRoute);
+
 module.exports = app;

@@ -30,8 +30,14 @@ class ParseResponseToJSON extends ParseResponseBehavior {
         try {
             responseObject = JSON.parse(cleanedReply);
         } catch (e) {
-            console.log("Couldn't parse");
-            console.log(cleanedReply)
+            return {
+                error: {
+                    code: 500,
+                    message: `Something went wrong getting recommendation list.
+                    This did not count towards your daily limit. Please try again with a 
+                    slightly different description.`
+                }
+            }
         }
         // console.log("RES: ", res);
         // console.log("CLEANED: ", cleanedReply);
