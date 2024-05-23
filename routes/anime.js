@@ -3,6 +3,7 @@ const { FetchPopoularController } = require('../controllers/anime/fetchPopularCo
 const passport = require('passport');
 const { RequiredAuthService, OptionalAuthService } = require('../middleware/auth/auth');
 const { SearchAnimeController } = require('../controllers/anime/searchAnime');
+const { GetAnimeDetailsController } = require('../controllers/anime/getAnimeDetails');
 const router = express.Router();
 require('dotenv').config();
 
@@ -21,4 +22,9 @@ router.get(
         async (req,res)=>{await searchAnimeController.do(req, res)}
     );
     
+const getAnimeDetailsController = new GetAnimeDetailsController();
+router.get(
+    '/search/:id', 
+        async (req,res)=>{await getAnimeDetailsController.do(req, res)}
+    );
 module.exports = router;

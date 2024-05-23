@@ -38,11 +38,11 @@ class RecommendationPromptFromTitleAndDescription extends RecommendationsPromptB
             their reasoning for liking it is: 
             ${reason}
 
-            please respond with a list of 1 - ${max} recommendations in the following JSON format: 
+            please respond with a list of ${max} recommendations in the following JSON format: 
 
             {
                 recommendations: {
-                    title: <string>, // title of the anime
+                    title: <string>, // title of the anime in English.
                     reason: <string> // why the user would like this anime. give a ${length} reason. No spoilers.
                 }[]
             }

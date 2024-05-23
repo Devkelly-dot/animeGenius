@@ -1,3 +1,5 @@
+const Subscription = require("../../../db/models/Subscription");
+
 class ChargeUserBehavior {
     constructor(data) {
         this.data = data;
@@ -19,9 +21,10 @@ class ChargeUserTotalRequests extends ChargeUserBehavior {
     }
 
     async chargeUser() {
-        return {
-            charge: "Free of charge"
-        }
+        await Subscription.updateOne({
+            _id: this.data?.user?.subscription,
+            $inc: { suggestion_requests: -1 }
+        });
     }
 }
 

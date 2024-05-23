@@ -1,4 +1,4 @@
-const { SubscriptionPlanTitles } = require("../../../utils/enums/subscription")
+const { SubscriptionPlanTitles, SubscriptionPromptSizes } = require("../../../utils/enums/subscription")
 
 const plans = [
     {
@@ -8,7 +8,8 @@ const plans = [
             suggestion_requests: 20,
             suggestions_returned: 2,
             max_prompt_size: 200,
-            max_tokens: 500
+            max_tokens: 500,
+            length: SubscriptionPromptSizes.SHORT
         }
     },
     {
@@ -18,7 +19,8 @@ const plans = [
             suggestion_requests: 200,
             suggestions_returned: 5,
             max_prompt_size: 500,
-            max_tokens: 1500
+            max_tokens: 1500,
+            length: SubscriptionPromptSizes.LONG
         }
     }
 ]

@@ -30,6 +30,25 @@ class CheckUserSubscription extends checkPermissionBehavior {
             }
         }
 
+        const {subscription} = this.config;
+        if(!subscription) {
+            return {
+                error: {
+                    code: 401,
+                    message: "User has no subscription."
+                }
+            }
+        }
+
+        if(subscription?.suggestion_requests < 1) {
+            return {
+                error: {
+                    code: 401,
+                    message: "You are out of daily requests."
+                }
+            }
+        }
+
         return {
             success: "User has a subscription"
         }

@@ -16,6 +16,7 @@ class GetRecommendationsActionSerializer extends BasePostSerializer {
 
     async post(verifiedFields) {
         verifiedFields.user = this.req.user;
+        verifiedFields.subscription = this.req.subscription;
         const recommendationService = new UserRequestRecommendationsCharged(verifiedFields);
         const recommendations = await recommendationService.do();
         return recommendations;

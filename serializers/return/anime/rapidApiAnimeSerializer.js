@@ -11,7 +11,12 @@ class RapidApiAnimeSerializer extends BaseReturnSerializer {
             'score',
             'rank',
             'aired_on',
-            'description'
+            'description',
+            'myanimelist_id',
+            'synopsis',
+            'title_en',
+            'title_ov',
+            'statistics'
         ]
     }
 }

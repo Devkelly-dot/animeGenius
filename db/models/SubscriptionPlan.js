@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const BaseModelSchema = require('./base/Base');
+const { SubscriptionPromptSizes } = require('../../utils/enums/subscription');
 
 const IncludesSchema = new mongoose.Schema({
     suggestion_requests: {
@@ -17,6 +18,10 @@ const IncludesSchema = new mongoose.Schema({
     max_tokens: {
         type: mongoose.SchemaTypes.Number,
         default: 500
+    },
+    length: {
+        type: mongoose.SchemaTypes.String,
+        default: SubscriptionPromptSizes.SHORT
     }
 }, { _id: false });
 
