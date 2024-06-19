@@ -29,7 +29,7 @@ class CreateRegularUserBehavior extends CreateUserBehavior {
             throw new Error("CreateRegularUserBehavior's config must have email and password properties");
         }
         const new_user = {
-            email: this.userConfig?.email,
+            email: this.userConfig?.email?.toLowerCase(),
             password: this.userConfig?.password,
             username: this.userConfig?.username
         }
