@@ -21,10 +21,10 @@ class ChargeUserTotalRequests extends ChargeUserBehavior {
     }
 
     async chargeUser() {
-        await Subscription.updateOne({
-            _id: this.data?.user?.subscription,
-            $inc: { suggestion_requests: -1 }
-        });
+        await Subscription.updateOne(
+            { _id: this.data?.user?.subscription },
+            { $inc: { suggestion_requests: -1 } }
+        );
     }
 }
 
