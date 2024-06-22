@@ -28,6 +28,7 @@ class ParseResponseToJSON extends ParseResponseBehavior {
         const cleanedReply = content?.replace(/([{,]\s*)([A-Za-z0-9_\-]+?)\s*:/g, '$1"$2":');
         let responseObject = {};
         try {
+            console.log(cleanedReply);
             responseObject = JSON.parse(cleanedReply);
         } catch (e) {
             return {

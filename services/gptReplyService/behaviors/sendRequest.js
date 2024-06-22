@@ -12,7 +12,6 @@ class SendRequestBehavior {
         }
 
         const reply = await this.send();
-        console.log(reply)
         return reply;
     }
 
