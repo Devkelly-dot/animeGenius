@@ -31,6 +31,7 @@ class ParseResponseToJSON extends ParseResponseBehavior {
             console.log(cleanedReply);
             responseObject = JSON.parse(cleanedReply);
         } catch (e) {
+            console.log(e);
             return {
                 error: {
                     code: 500,
