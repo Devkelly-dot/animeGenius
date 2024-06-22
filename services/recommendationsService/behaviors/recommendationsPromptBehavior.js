@@ -46,6 +46,8 @@ class RecommendationPromptFromTitleAndDescription extends RecommendationsPromptB
                     reason: <string> // why the user would like this anime. give a ${length} reason. No spoilers.
                 }[]
             }
+
+            MAKE SURE THE JSON FORMAT IS COMPLETE EVEN IF IT MEANS STOPPING EARLY. IT HAS TO BE VALID JSON
         `
 
         return getReccsPrompt;

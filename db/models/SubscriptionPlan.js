@@ -9,7 +9,7 @@ const IncludesSchema = new mongoose.Schema({
     },
     suggestions_returned: {
         type: mongoose.SchemaTypes.Number,
-        default: 2
+        default: 1
     },
     max_prompt_size: {
         type: mongoose.SchemaTypes.Number,
