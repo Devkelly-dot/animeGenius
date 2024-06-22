@@ -10,7 +10,7 @@ class GetUserSubscription {
     }
 
     async noUser(req, res, next) {
-        return res.status(401).json({ message: 'Unauthorized' });
+        return res.status(401).json({ message: 'Please log in' });
     }
 
     async user(req, res, next) {
