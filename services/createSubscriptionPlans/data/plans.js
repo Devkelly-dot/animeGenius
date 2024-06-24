@@ -1,4 +1,5 @@
 const { SubscriptionPlanTitles, SubscriptionPromptSizes } = require("../../../utils/enums/subscription")
+require('dotenv').config();
 
 const plans = [
     {
@@ -15,6 +16,7 @@ const plans = [
     {
         title: SubscriptionPlanTitles.PREMIUM,
         displayName: 'Premium',
+        price_monthly: process.env.STRIPE_TIER1,
         includes: {
             suggestion_requests: 200,
             suggestions_returned: 5,

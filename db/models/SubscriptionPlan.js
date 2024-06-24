@@ -34,6 +34,12 @@ const SubscriptionPlanModel = new mongoose.Schema({
     },
     includes: {
         type: IncludesSchema // Embedding the includes schema
+    },
+    price_monthly: {
+        type: mongoose.SchemaTypes.String,
+    },
+    price_yearly: {
+        type: mongoose.SchemaTypes.String,
     }
 });
 

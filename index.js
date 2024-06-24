@@ -24,4 +24,7 @@ app.use('/v1/availability', availabilityRoute);
 let recommendationsRoute = require('./routes/recommendations');
 app.use('/v1/recommendations', recommendationsRoute);
 
+let stripeRoutes = require('./routes/stripe');
+app.use('/v1/stripe', stripeRoutes);
+
 module.exports = app;

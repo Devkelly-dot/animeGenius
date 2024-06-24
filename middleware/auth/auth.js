@@ -15,7 +15,7 @@ class RequiredAuthService extends AuthService {
                 return next(err);
             }
             if (!user) {
-                return res.status(401).json({ message: 'Unauthorized' });
+                return res.status(401).json({ message: 'Please logout and log back in to continue.' });
             }
             req.user = user;
             next();
