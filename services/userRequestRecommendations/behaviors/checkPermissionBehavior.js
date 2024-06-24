@@ -43,8 +43,8 @@ class CheckUserSubscription extends checkPermissionBehavior {
         if(subscription?.suggestion_requests < 1) {
             return {
                 error: {
-                    code: 401,
-                    message: "You are out of daily requests."
+                    code: 429,
+                    message: "You are out of daily requests. Please try again tomorrow"
                 }
             }
         }

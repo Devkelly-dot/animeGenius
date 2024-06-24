@@ -28,20 +28,21 @@ class ParseResponseToJSON extends ParseResponseBehavior {
         const cleanedReply = content?.replace(/([{,]\s*)([A-Za-z0-9_\-]+?)\s*:/g, '$1"$2":');
         let responseObject = {};
         try {
-            responseObject = JSON.parse(cleanedReply);
+            console.log("CLEANED REPLY: ", cleanedReply);
+            responseObject = await JSON.parse(cleanedReply);
         } catch (e) {
+            console.log("CAUGHT ERROR: ", e);
             return {
                 error: {
                     code: 500,
-                    message: `Something went wrong getting recommendation list.
-                    This did not count towards your daily limit. Please try again with a 
-                    slightly different description.`
+                    message: `Something went wrong getting recommendation list. This did not count towards your daily limit. Please try again with a slightly different description.`
                 }
             }
         }
         // console.log("RES: ", res);
         // console.log("CLEANED: ", cleanedReply);
         // console.log("OBJECT: ", responseObject);
+        console.log("RETURNING RESPONSE OBJECT : ", responseObject)
         return responseObject;
     }
 }
