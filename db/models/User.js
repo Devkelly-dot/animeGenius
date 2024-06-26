@@ -22,6 +22,9 @@ const UserModel = new mongoose.Schema({
     subscription: {
         type: mongoose.SchemaTypes.ObjectId,
         ref: 'subscription' 
+    },
+    stripe_id: {
+        type: mongoose.SchemaTypes.String,
     }
 });
 

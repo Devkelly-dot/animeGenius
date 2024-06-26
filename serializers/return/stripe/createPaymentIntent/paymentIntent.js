@@ -5,11 +5,8 @@ class PaymentIntentReturnSerializer extends BaseReturnSerializer {
         super(data);
 
         this.fields = [
-            'subscriptionId',
-            'clientSecret',
-            'user_stripe_id',
-            'user_email',
-            'verifiedFields'
+            'stripe_id',
+            'intentData'
         ]
     }
 }
