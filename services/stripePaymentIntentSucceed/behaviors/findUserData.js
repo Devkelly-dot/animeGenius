@@ -21,7 +21,7 @@ class FindUserByStripeIdBehavior extends FindUserDataBehavior {
     }
 
     async find() {
-        const stripe_id = data.customer_stripe_id;
+        const stripe_id = this.data.customer_stripe_id;
         const user = await User.findOne({
             stripe_id: stripe_id
         })
