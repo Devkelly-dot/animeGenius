@@ -39,10 +39,13 @@ class ExtractSubscriptionDataFromEvent extends ExtractEventDataBehavior {
         const stripe_subscription_id = fullStripeSubscription.id;
         const stripe_price_id = fullStripeSubscription.items.data[0].plan.id;
 
+        const customer_stripe_id = session.customer
+
         return {
             session,
             stripe_subscription_id,
-            stripe_price_id
+            stripe_price_id,
+            customer_stripe_id
         }
     }
 }

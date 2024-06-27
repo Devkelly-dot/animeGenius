@@ -25,7 +25,7 @@ class GenerateJWTTokenBehavior extends GenerateTokenBehavior {
             'username'
         ];
 
-        this.expiresIn = '1h';
+        this.expiresIn = '1w';
     }
 
     async generate() {
