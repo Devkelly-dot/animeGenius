@@ -31,7 +31,7 @@ class FindUserByStripeIdBehavior extends FindUserDataBehavior {
             return {
                 error: {
                     code: 404,
-                    message: "User with this stripe id not found"
+                    message: `User with this stripe id not found: ${stripe_id}`
                 }
             }
         }
