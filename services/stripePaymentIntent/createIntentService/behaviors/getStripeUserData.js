@@ -1,3 +1,5 @@
+const User = require('../../../../db/models/User');
+
 require('dotenv').config()
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
@@ -30,6 +32,12 @@ class GetOrCreateStripeUserBehavior extends GetStripeUserBehavior {
                 email: user.email,
             });
             stripe_id = newStripeUser.id;
+            await User.updateOne({
+                _id: user._id
+            },
+            {
+                stripe_id: stripe_id
+            });
         }
 
         return {stripe_id};
