@@ -6,7 +6,7 @@ require('dotenv').config();
 const stripeCheckoutController = new StripeCheckoutController();
 router.post(
     '/stripe/payment-intent-succeed', 
-    express.raw({type: "application/json"}),
+        express.raw({type: "application/json"}),
         async (req,res)=>{await stripeCheckoutController.do(req, res)}
     );
 

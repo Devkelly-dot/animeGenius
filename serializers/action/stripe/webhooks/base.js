@@ -19,13 +19,7 @@ class StripeBaseWebhookSerializer extends BaseActionSerializer {
         }
         const secret = this.secret; 
         const signature = this.req.headers['stripe-signature'];
-
-        console.log("STRIPE INFORMATION: ");
-        console.log({
-            signature,
-            secret,
-            body: this.req.body
-        })
+        
         try {
             const event = this.extractEvent(this.req.body, signature, secret);
             if (event.type === this.event_type) {
