@@ -24,7 +24,6 @@ class StripePaymentIntentSucceedActionSerializer extends StripeBaseWebhookSerial
 
         try {
             const res = await service.do();
-            console.log(res);
             return res;
         } catch (e) {
             console.log(e);

@@ -7,7 +7,8 @@ class CheckPermissionBehavior {
     }
 
     async do() {
-
+        const permissionData = await this.check();
+        return permissionData;
     }
 
     async check() {
@@ -21,14 +22,13 @@ class CheckUserHasNoSubscription extends CheckPermissionBehavior {
     }
 
     async check() {
-        const user = data.user;
-        const subscription = user.subscription;
+        const subscription = this.data.subscription;
         if(!subscription) {
             throw new Error("CheckPermissionBehavior user needs a subscription property");
         }
 
         const freePlan = await SubscriptionPlan.findOne({title: SubscriptionPlanTitles.FREE});
-        if(subscription.subscriptionPlan.toString() !== freePlan._id.toString()) {
+        if(subscription.subscriptionPlan._id?.toString() !== freePlan._id.toString()) {
             return {
                 error: {
                     code: 409,

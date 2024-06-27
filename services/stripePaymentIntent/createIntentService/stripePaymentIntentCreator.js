@@ -45,7 +45,6 @@ class StripePaymentIntentCreator {
 
         const postProcessor = new this.postProcessor(data);
         const processedData = await postProcessor.do();
-        console.log(processedData);
         return processedData;
     }
 }
