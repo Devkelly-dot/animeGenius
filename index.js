@@ -6,9 +6,13 @@ const passport = require('./passport');
 
 const app = express();
 
-app.use(passport.initialize());
 app.use(cors());
 app.use(morgan('dev'));
+
+let webhooksRoute = require('./routes/webhooks');
+app.use('/v1/webhooks', webhooksRoute);
+
+app.use(passport.initialize());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
