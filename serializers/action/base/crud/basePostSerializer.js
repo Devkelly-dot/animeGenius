@@ -18,7 +18,7 @@ class BasePostSerializer extends BasePermissionSerializer {
         }
 
         this.required_fields?.forEach((f)=>{
-            if(!body[f]) {
+            if(body[f] === undefined || body[f] === null) {
                 missing_fields.push(f);
             } else {
                 verifiedFields[f] = body[f];

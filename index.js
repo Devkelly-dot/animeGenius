@@ -31,4 +31,7 @@ app.use('/v1/recommendations', recommendationsRoute);
 let stripeRoutes = require('./routes/stripe');
 app.use('/v1/stripe', stripeRoutes);
 
+let subscriptionRoutes = require('./routes/subscription');
+app.use('/v1/subscription', subscriptionRoutes);
+
 module.exports = app;
