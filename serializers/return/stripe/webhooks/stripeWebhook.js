@@ -5,7 +5,9 @@ class StripeWebhookReturnSerializer extends BaseReturnSerializer {
         super(data);
 
         this.fields = [
-            'message'
+            'message',
+            'subscription',
+            'cancelData'
         ]
     }
 }
