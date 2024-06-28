@@ -27,9 +27,10 @@ class ResetSubscriptionPlanBehavior extends CancelSubscriptionBehavior {
             title: SubscriptionPlanTitles.FREE
         });
 
+        console.log(this.data);
         const subscription = this.data.user_subscription;
         const cancelData = await Subscription.updateOne({
-            stripe_id: subscription._id
+            _id: subscription._id
         }, {
             suggestion_requests: freeSubscriptionPlan.includes.suggestion_requests
         });
