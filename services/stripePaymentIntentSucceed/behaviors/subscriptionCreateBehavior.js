@@ -32,7 +32,8 @@ class SubscriptionCreateWithService extends SubscriptionCreateBehavior {
             _id: user.subscription._id
         }, {
             subscriptionPlan: subscriptionPlan._id,
-            suggestion_requests: subscriptionPlan.includes.suggestion_requests
+            suggestion_requests: subscriptionPlan.includes.suggestion_requests,
+            stripe_id: this.data.stripe_subscription_id
         });
 
         return {updateData};

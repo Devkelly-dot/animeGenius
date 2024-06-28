@@ -13,6 +13,9 @@ const Subscription = new mongoose.Schema({
     suggestion_requests: {
         type: mongoose.SchemaTypes.Number,
         default: 20
+    },
+    stripe_id: {
+        type: mongoose.SchemaTypes.String
     }
 });
 
