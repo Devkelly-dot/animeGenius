@@ -32,7 +32,8 @@ class ResetSubscriptionPlanBehavior extends CancelSubscriptionBehavior {
         const cancelData = await Subscription.updateOne({
             _id: subscription._id
         }, {
-            suggestion_requests: freeSubscriptionPlan.includes.suggestion_requests
+            suggestion_requests: freeSubscriptionPlan.includes.suggestion_requests,
+            subscriptionPlan: freeSubscriptionPlan._id
         });
 
         return {
