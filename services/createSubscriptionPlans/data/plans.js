@@ -17,6 +17,7 @@ const plans = [
         title: SubscriptionPlanTitles.PREMIUM,
         displayName: 'Premium',
         price_monthly: process.env.STRIPE_TIER1,
+        display_price_monthly: 399,
         includes: {
             suggestion_requests: 100,
             suggestions_returned: 3,

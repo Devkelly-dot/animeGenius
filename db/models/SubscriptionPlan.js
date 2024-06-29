@@ -40,6 +40,9 @@ const SubscriptionPlanModel = new mongoose.Schema({
     },
     price_yearly: {
         type: mongoose.SchemaTypes.String,
+    },
+    display_price_monthly: {
+        type: mongoose.SchemaTypes.Number,
     }
 });
 
