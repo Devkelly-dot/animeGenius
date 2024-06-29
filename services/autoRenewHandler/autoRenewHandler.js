@@ -10,6 +10,7 @@ class AutoRenewHandler {
     async do(){
         const toggleBehavior = new this.toggleBehavior(this.config);
         const toggleData = await toggleBehavior.do();
+        console.log(toggleData);
         return toggleData;
     }
 }

@@ -5,7 +5,7 @@ class ToggleAutoRenewSerializer extends BaseReturnSerializer {
         super(data);
 
         this.fields = [
-            'data'
+            'updateData'
         ]
     }
 }
