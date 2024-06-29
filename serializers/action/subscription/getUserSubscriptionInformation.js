@@ -9,11 +9,24 @@ class GetUserSubscriptionInformationActionSerializer extends BaseGetSerializer {
 
     async get(verifiedParams) {
         const subscription = this.req.subscription;
-        const stripe_subscription = await stripe.subscriptions.retrieve(subscription.stripe_id);
-        const renew_data = {
-            isRenewing: !stripe_subscription.cancel_at_period_end,
-            currentPeriodEnd: stripe_subscription.current_period_end,
-        };
+        let stripe_subscription = null;
+
+        if(subscription.stripe_id) {
+            try {
+                stripe_subscription = await stripe.subscriptions.retrieve(subscription.stripe_id);
+            } catch (e) {
+                console.log(e);
+            }
+        }
+        
+        let renew_data = {};
+
+        if(stripe_subscription) {
+            renew_data = {
+                isRenewing: !stripe_subscription.cancel_at_period_end,
+                currentPeriodEnd: stripe_subscription.current_period_end,
+            };
+        }
 
         return {
             ...subscription?._doc,
