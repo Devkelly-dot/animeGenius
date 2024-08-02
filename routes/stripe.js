@@ -8,11 +8,11 @@ const requiredAuthService = new RequiredAuthService();
 const getUserSubscription = new GetUserSubscription();
 
 const createPaymentIntentController = new CreatePaymentIntentController();
-router.post(
-    '/payment-intent', 
-        async (req,res,next)=>{await requiredAuthService.do(req, res, next)},
-        async (req, res, next)=>{await getUserSubscription.do(req, res, next)},
-        async (req,res)=>{await createPaymentIntentController.do(req, res)}
-    );
+// router.post(
+//     '/payment-intent', 
+//         async (req,res,next)=>{await requiredAuthService.do(req, res, next)},
+//         async (req, res, next)=>{await getUserSubscription.do(req, res, next)},
+//         async (req,res)=>{await createPaymentIntentController.do(req, res)}
+//     );
 
 module.exports = router;

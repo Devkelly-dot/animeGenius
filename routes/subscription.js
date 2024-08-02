@@ -17,13 +17,13 @@ router.get(
         async (req,res)=>{await getSubscriptionInformation.do(req, res)}
     );
 
-const autoRenewController = new AutoRenewController();
-router.post(
-    '/auto-renew', 
-        async (req,res,next)=>{await requiredAuthService.do(req, res, next)},
-        async (req, res, next)=>{await getUserSubscription.do(req, res, next)},
-        async (req,res)=>{await autoRenewController.do(req, res)}
-    );
+// const autoRenewController = new AutoRenewController();
+// router.post(
+//     '/auto-renew', 
+//         async (req,res,next)=>{await requiredAuthService.do(req, res, next)},
+//         async (req, res, next)=>{await getUserSubscription.do(req, res, next)},
+//         async (req,res)=>{await autoRenewController.do(req, res)}
+//     );
 
 const getSubscriptionPlansController = new GetSubscriptionPlansController();
 router.get(
