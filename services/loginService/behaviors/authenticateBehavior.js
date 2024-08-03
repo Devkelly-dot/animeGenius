@@ -34,6 +34,8 @@ class PassportAuthenticateBehavior extends AuthenticateBehavior {
                 }
             }
         }
+
+        return compare;
     }
 }
 
