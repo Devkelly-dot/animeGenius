@@ -28,7 +28,7 @@ class BuildRapidApiSearchByTitle  extends BuildSearchConfig {
             throw new Error("The config object for BuildRapidApiSearchByTitle must include a 'title' property.");
         }
 
-        const endpoint = 'v2/anime/search';
+        const endpoint = 'anime/search';
         const params = {
             q: `${this.config?.title}`,
             n: '50',

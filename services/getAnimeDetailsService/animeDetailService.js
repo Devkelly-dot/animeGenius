@@ -1,5 +1,6 @@
 const { RapidAPIAnimeRequestSender } = require("../rapidApiService/rapidApiService");
 const { BuildRapidApiGetAnime } = require("./behaviors/buildGetDetailsConfig");
+const { ConvertToSerializerBehavior } = require("./behaviors/postProcessBehavior");
 
 class AnimeDetailService {
     constructor(config) {
@@ -7,6 +8,7 @@ class AnimeDetailService {
 
         this.buildSearchConfigBehavior = null;
         this.searchService = null;
+        this.postProcessBehavior = null;
     }
 
     async do() {
@@ -19,7 +21,13 @@ class AnimeDetailService {
 
         const searchService = new this.searchService(searchConfig);
         const res = await searchService.do();
-        return res;
+
+        let postProcessData = res;
+        if(this.postProcessBehavior) {
+            const postProcessBehavior = new this.postProcessBehavior(res);
+            postProcessData = await postProcessBehavior.do();
+        }
+        return postProcessData;
     }
 }
 
@@ -29,6 +37,7 @@ class RapidApiAnimeDetailService extends AnimeDetailService {
 
         this.buildSearchConfigBehavior = BuildRapidApiGetAnime;
         this.searchService = RapidAPIAnimeRequestSender;
+        this.postProcessBehavior = ConvertToSerializerBehavior;
     }
 }
 
