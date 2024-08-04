@@ -17,6 +17,13 @@ class ConvertToSerializerBehavior {
             'myanimelist_id': item.id,
             'title_en': item.englishTitle,
             'title_ov': item.japaneseTitle,
+            'statistics': {
+                'score': item.score,
+                'ranked': item.ranked,
+                'popularity': item.popularity,
+                'members': item.members,
+                'favorites': item.favorites
+            }
         }
         return formatted;
     }
